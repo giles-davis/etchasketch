@@ -10,8 +10,23 @@ function getRandomColor() {
     return color;
   }
 
-function createGrid(dimension) {
-    const totalSquares = dimension * dimension;
+  function createGrid(dimension) {
+    container.style.setProperty('--dimension', dimension);
+    
+    // Calculate base square size with 1.5x scaling
+    const squareSize = (750 / dimension) * 1.5;
+    
+    // Calculate how many squares we need in each direction
+    const squaresPerRow = Math.floor(1750 / squareSize);
+    const squaresPerColumn = Math.floor(750 / squareSize);
+    
+    // Adjust container size to perfectly fit the squares
+    container.style.width = `${squareSize * squaresPerRow}px`;
+    container.style.height = `${squareSize * squaresPerColumn}px`;
+    
+    // Create grid based on calculated dimensions
+    const totalSquares = squaresPerRow * squaresPerColumn;
+
     for (let i = 0; i < totalSquares; i++) {
         const square = document.createElement('div');
         square.classList.add("square");
@@ -21,7 +36,7 @@ function createGrid(dimension) {
             square.style.backgroundColor = getRandomColor();
             let currentOpacity = square.style.opacity;
             if (currentOpacity < 1) {
-                square.style.opacity = Number(currentOpacity) + 0.1
+                square.style.opacity = Number(currentOpacity) + 0.1;
             }
         });    
     }
@@ -29,18 +44,18 @@ function createGrid(dimension) {
 
 
 
+
+
+
+
 setBtn.addEventListener('click', () => {
-    let result = prompt('How many cells to a side?', '50');
-    if (result === null) {
+  let result = prompt('Select number of squares for the grid...', '50');
+  let num = Number(result);
+  if (result === null) return;
+  if (isNaN(num) || num <= 0 || num > 100) {
+      alert("Invalid input! Please input a number between 1 and 100!");
       return;
-    } else if (Number(result) > 0 && Number(result) <= 100) {
-      container.replaceChildren();
-      createGrid(Number(result));
-    } else if (Number(result) > 100) {
-      alert("Please input a number between 1 and 100");
-      return;
-    } else if (Number(result) != Number) {
-      alert("Please input a number between 1 and 100");
-      return;
-    }
-  });
+  }
+  container.replaceChildren();
+  createGrid(num);
+});

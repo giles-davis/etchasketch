@@ -9,20 +9,25 @@ body {
     display: flex;
     width: 100%;
     justify-content: center;
-    padding: 10px;
+    padding: 5px;
   }
 
-#container {
-    margin-top: 40px;
+  #container {
+    margin-top: 10px;
     height: 750px;
     width: 1750px;
     display: flex;
     flex-wrap: wrap;
     border: solid;
+    align-content: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
 }
 
 .square {
     box-sizing: border-box;
-    width: calc(100% / 16);
-    aspect-ratio: 1;
+    height: calc((750px / var(--dimension)) * 1.5);
+    width: calc((750px / var(--dimension)) * 1.5);
+    border: 1px solid black;
 }
+
