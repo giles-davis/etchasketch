@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 25px;
+  }
+  
+#container {
+    margin-top: 60px;
+    height: 750px;
+    width: 1750px;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid;
+}
+
+.square {
+    box-sizing: border-box;
+    width: calc(100% / 16);
+    aspect-ratio: 1;
+}
