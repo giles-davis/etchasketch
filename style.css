@@ -9,11 +9,11 @@ body {
     display: flex;
     width: 100%;
     justify-content: center;
-    padding: 25px;
+    padding: 10px;
   }
-  
+
 #container {
-    margin-top: 60px;
+    margin-top: 40px;
     height: 750px;
     width: 1750px;
     display: flex;

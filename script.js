@@ -1,4 +1,5 @@
 const container = document.querySelector("#container");
+const setBtn = document.querySelector('#reset');
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -26,7 +27,7 @@ function createGrid(dimension) {
     }
 }
 
-createGrid(16);
+
 
 setBtn.addEventListener('click', () => {
     let result = prompt('How many cells to a side?', '50');
